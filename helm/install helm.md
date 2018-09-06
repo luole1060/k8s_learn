@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ../image
+---
+
 # helm 安装
 
 ## 用途
@@ -47,4 +51,42 @@ $ helm version
 Client: &version.Version{SemVer:"v2.10.0", GitCommit:"9ad53aac42165a5fadc6c87be0dea6b115f93090", GitTreeState:"clean"}
 Server: &version.Version{SemVer:"v2.10.0", GitCommit:"9ad53aac42165a5fadc6c87be0dea6b115f93090", GitTreeState:"clean"}
 ```
+
+
+
+## helm 在k8s 集群外安装
+
+拷贝.kube 目录，目的是连接k8s 集群。
+
+```shell
+scp -r .kube   .
+```
+
+helm 初始化
+
+```shell
+$ helm init --client-only  --stable-repo-url https://cnych.github.io/kube-charts-mirror/
+```
+
+
+
+## 构建私有的 stable-repo
+
+启动stable serve ，如下所示，启动后只能通过http://127.0.0.1:8879的方式访问。
+
+```
+helm serve 
+Regenerating index. This may take a moment.
+Now serving you on 127.0.0.1:8879
+```
+
+如果想要痛机器IP访问的话加上—address。
+
+```
+helm serve --address 10.116.18.104:8879
+Regenerating index. This may take a moment.
+Now serving you on 10.116.18.93:8879
+```
+
+![image-20180906174808890](/Volumes/mac-d/github/k8s_learn/image/image-20180906174808890.png)
 
