@@ -88,5 +88,4 @@ Regenerating index. This may take a moment.
 Now serving you on 10.116.18.93:8879
 ```
 
-![image-20180906174808890](/Volumes/mac-d/github/k8s_learn/image/image-20180906174808890.png)
-
+![image-20180906174808890](../image/image-20180906174808890.png)
